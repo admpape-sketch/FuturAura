@@ -8,7 +8,6 @@
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
@@ -19,37 +18,162 @@
 
     <script type="text/babel">
         const products = [
-            {
-                id: 1,
-                name: "AI Smart Sleep Mask",
-                price: 79.99,
-                image: "https://images.unsplash.com/photo-1511295742364-917e7bb21ecb?auto=format&fit=crop&q=80&w=600",
-                descFR: "Analyse votre sommeil en temps réel et génère des ondes sonores adaptatives.",
-                why: "Indispensable pour vaincre l'anxiété et l'insomnie moderne."
+            // --- GRUP 1: PWODWI EXISTAN YO ---
+            { id: 1, name: "AI Smart Sleep Mask", price: "179.99", image: "https://images.unsplash.com/photo-1511295742364-917e7bb21ecb?auto=format&fit=crop&q=80&w=600", descFR: "Analyse votre sommeil en temps réel et génère des ondes sonores adaptatives.", descEN: "Analyzes your sleep in real-time and generates adaptive sound waves.", why: "Indispensable pour vaincre l'anxiété." },
+            { id: 2, name: "AI Translator Pro 2026", price: "249.00", image: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=600", descFR: "Traduction instantanée dans plus de 100 langues, même sans connexion.", descEN: "Instant translation in over 100 languages, even without connection.", why: "Le compagnon idéal pour les entrepreneurs globaux." },
+            { id: 3, name: "Packs de Prompts pour IA", price: "299.00", image: "https://images.unsplash.com/photo-1673187115862-d41e70e9a7e3?auto=format&fit=crop&q=80&w=600", descFR: "Collection de commandes conçue pour marketing, design, rédaction.", descEN: "Curated AI prompts bundle tailored for marketing, design, and writing.", why: "Meilleurs résultats avec ChatGPT & Midjourney." },
+            { id: 4, name: "Produits Numériques IA", price: "349.00", image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600", descFR: "Planners, art digital, modèles d'entreprise, et eBooks créés par IA.", descEN: "AI-generated digital products like planners, templates, and eBooks.", why: "Prêt pour vente sur Etsy ou Gumroad." },
+            { id: 5, name: "Service Images White Label", price: "299.00", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=600", descFR: "Images générées par IA pour niches spécifiques (avatars, immobilier).", descEN: "White-label AI image generation for specific niches (avatars, real estate).", why: "Styles visuels personnalisés pour vos clients." },
+            { id: 6, name: "Chatbots pour Entreprises", price: "600.00", image: "https://images.unsplash.com/photo-1531746790731-6c087fecd05a?auto=format&fit=crop&q=80&w=600", descFR: "Création de chatbots IA pour sites web et e-commerce sans coder.", descEN: "Customized AI chatbots for websites and stores to automate FAQs.", why: "Automatisation du service client et des réservations." },
+            { id: 7, name: "Outils de SEO IA-assisted", price: "2000.00", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600", descFR: "Optimisation SEO : structuration, mots-clés, méta descriptions, audits.", descEN: "AI-assisted SEO tools: keyword research, meta descriptions, and audits.", why: "Fort besoin pour la visibilité des PME." },
+            { id: 8, name: "Art IA Personnalisé", price: "260.00", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&q=80&w=600", descFR: "Art IA sur produits physiques (portraits animaux, mugs, t-shirts).", descEN: "AI art applied to personalized products (pet portraits, mugs, shirts).", why: "Tendance des achats émotionnels et sur mesure." },
+            { id: 9, name: "Kits Modèles Lead Magnets", price: "279.00", image: "https://images.unsplash.com/photo-1553484771-047a44eee27b?auto=format&fit=crop&q=80&w=600", descFR: "Modèles IA pour créer des PDF, checklists et mini-guides.", descEN: "AI-powered lead magnet kits (checklists, PDFs) to capture emails.", why: "Outils indispensables pour marketeurs." },
+            { id: 10, name: "Applications IA Légères", price: "399.00", image: "https://images.unsplash.com/photo-1551288049-bbbda546697c?auto=format&fit=crop&q=80&w=600", descFR: "Petites apps ciblées (flashcards, assistant budget) sous licence.", descEN: "Lightweight AI apps (flashcard generators, budget assistants).", why: "Logiciels simples vendus sous licence ou abonnement." },
+
+            // --- GRUP 2: NOUVO PWODWI SPESIFIK YO (4x Pri Revyen) ---
+            { 
+                id: 11, 
+                name: "Lunettes Assistant IA", 
+                price: "880.00", 
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Lunettes intelligentes avec analyse visuelle et assistant vocal intégré.", 
+                descEN: "Smart glasses with visual analysis and integrated voice assistant.", 
+                why: "L'intelligence artificielle devant vos yeux." 
             },
-            {
-                id: 2,
-                name: "AI Translator Pro 2026",
-                price: 149.00,
-                image: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?auto=format&fit=crop&q=80&w=600",
-                descFR: "Traduction instantanée dans plus de 100 langues, même sans connexion.",
-                why: "Le compagnon idéal pour les entrepreneurs globaux."
+            { 
+                id: 12, 
+                name: "Oreiller Sommeil Profond", 
+                price: "420.00", 
+                image: "https://images.jpg.jpg.jpg", 
+                descFR: "Ajuste automatiquement sa fermeté pour optimiser votre respiration.", 
+                descEN: "Automatically adjusts firmness to optimize your breathing and sleep.", 
+                why: "Réveil sans fatigue garanti." 
             },
-            {
-                id: 3,
-                name: "AI Pet Pure Fountain",
-                price: 89.50,
-                image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600",
-                descFR: "Stérilisation UV automatique et notifications smartphone pour votre animal.",
-                why: "Assurez la longévité de votre compagnon avec une eau pure."
+            { 
+                id: 13, 
+                name: "Drone Autonome AI (Agro)", 
+                price: "3200.00", 
+                image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Analyse des sols et pulvérisation ciblée pour une agriculture moderne.", 
+                descEN: "Soil analysis and targeted spraying for modern precision agriculture.", 
+                why: "Indispensable pour augmenter le rendement agricole." 
             },
-            {
-                id: 4,
-                name: "Caméra de Sécurité IA",
-                price: 599.99,
-                image: "https://images.unsplash.com/photo-1581091215367-59ab6b1b6a0f?auto=format&fit=crop&w=600&q=80",
-                descFR: "Détecte les comportements suspects (chutes, intrusions) avant l’incident.",
-                why: "Sécurité proactive pour maisons et entreprises."
+            { 
+                id: 14, 
+                name: "Oreillette Traducteur AI", 
+                price: "540.00", 
+                image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Traduction simultanée dans l'oreille pour des conversations fluides.", 
+                descEN: "Simultaneous in-ear translation for seamless conversations.", 
+                why: "Brisez les barrières linguistiques instantanément." 
+            },
+            { 
+                id: 15, 
+                name: "Miroir Fitness AI", 
+                price: "1800.00", 
+                image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Miroir interactif qui corrige votre posture durant l'exercice.", 
+                descEN: "Interactive mirror that corrects your form and posture during workouts.", 
+                why: "Un coach personnel à domicile 24/7." 
+            },
+            { 
+                id: 16, 
+                name: "Projecteur Holographique AI", 
+                price: "960.00", 
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Projection 3D interactive pour présentations et divertissement.", 
+                descEN: "Interactive 3D holographic projection for meetings and entertainment.", 
+                why: "Le futur de la communication visuelle." 
+            },
+            { 
+                id: 17, 
+                name: "AI Cyber-Shield 2026", 
+                price: "480.00", 
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Protection proactive contre le phishing et les malwares.", 
+                descEN: "Proactive protection against phishing and malware.", 
+                why: "Sécurité maximale pour vos données." 
+            },
+            { 
+                id: 18, 
+                name: "AI Content Creator Suite", 
+                price: "1199.00", 
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Génération de scripts vidéo et montage automatisé.", 
+                descEN: "Video script generation and automated editing suite.", 
+                why: "Devenez viral sans effort." 
+            },
+            { 
+                id: 19, 
+                name: "AI Interior Designer 3D", 
+                price: "520.00", 
+                image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Visualisation 3D instantanée de votre décoration.", 
+                descEN: "Instant 3D visualization for your home interior design.", 
+                why: "Redécorez en un clic." 
+            },
+            { 
+                id: 20, 
+                name: "AI Fitness Coach Wearable", 
+                price: "720.00", 
+                image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Capteur corporel ajustant votre programme en temps réel.", 
+                descEN: "Body sensor adjusting your workout plan in real-time.", 
+                why: "Des résultats 3x plus rapides." 
+            },
+            { 
+                id: 21, 
+                name: "AI Legal Assistant Pro", 
+                price: "1600.00", 
+                image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Analyse instantanée de contrats légaux complexes.", 
+                descEN: "Instant analysis of complex legal contracts.", 
+                why: "Évitez les erreurs juridiques." 
+            },
+            { 
+                id: 22, 
+                name: "AI Plant Growth System", 
+                price: "360.00", 
+                image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Système hydroponique intelligent géré par IA.", 
+                descEN: "Smart hydroponic system managed by AI.", 
+                why: "Légumes bio sans effort." 
+            },
+            { 
+                id: 23, 
+                name: "AI Voice Mimicry Kit", 
+                price: "440.00", 
+                image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Clonage vocal haute fidélité pour vos projets.", 
+                descEN: "High-fidelity voice cloning for your projects.", 
+                why: "Contenu audio pro en 5 minutes." 
+            },
+            { 
+                id: 24, 
+                name: "AI Predictive Trader", 
+                price: "2400.00", 
+                image: "https://images.unsplash.com/photo-1611974714024-46383b7729b1?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Algorithme prédisant les tendances boursières.", 
+                descEN: "Algorithm predicting stock market trends.", 
+                why: "Maximisez vos profits." 
+            },
+            { 
+                id: 25, 
+                name: "AI Language Tutor AR", 
+                price: "600.00", 
+                image: "https://images.unsplash.com/photo-1544391496-1ca7c9755571?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Lunettes AR avec prof d'IA pour immersion totale.", 
+                descEN: "AR glasses with AI tutor for total immersion.", 
+                why: "Nouvelle langue en 30 jours." 
+            },
+            { 
+                id: 26, 
+                name: "AI Pet Emotion Decoder", 
+                price: "400.00", 
+                image: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=600", 
+                descFR: "Traduit les émotions de votre animal en texte.", 
+                descEN: "Translates your pet's emotions into text.", 
+                why: "Comprenez votre animal." 
             }
         ];
 
@@ -61,7 +185,6 @@
 
             return (
                 <div className="text-white min-h-screen">
-                    {/* NAVIGATION */}
                     <nav className="bg-slate-950/90 backdrop-blur-md p-6 flex justify-between items-center sticky top-0 z-50 border-b border-white/5">
                         <div className="font-black text-2xl bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent tracking-tighter">
                             FuturAura
@@ -73,13 +196,11 @@
                         </div>
                     </nav>
 
-                    {/* HEADER */}
                     <header className="py-16 px-6 text-center">
-                        <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">Nos Exclusivités AI</h2>
-                        <p className="text-slate-400 max-w-xl mx-auto text-sm italic underline decoration-blue-500/50">Innovation et performance pour votre quotidien en 2026.</p>
+                        <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">Le Futur Maintenant</h2>
+                        <p className="text-slate-400 max-w-xl mx-auto text-sm italic underline decoration-blue-500/50">Explorez notre collection exclusive d'innovations IA 2026.</p>
                     </header>
 
-                    {/* PRODUCTS */}
                     <section className="max-w-7xl mx-auto px-6 pb-20">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             {products.map((p) => (
@@ -91,8 +212,16 @@
                                     
                                     <div className="p-6 flex flex-col flex-grow">
                                         <h3 className="text-xl font-bold text-white mb-2 leading-tight">{p.name}</h3>
-                                        <p className="text-2xl font-black mb-4 text-emerald-400 tracking-tighter">${p.price}</p>
-                                        <p className="text-xs text-slate-300 mb-4 flex-grow italic">{p.descFR}</p>
+                                        <p className="text-2xl font-black mb-2 text-emerald-400 tracking-tighter">${p.price}</p>
+                                        
+                                        <div className="space-y-3 mb-4 flex-grow">
+                                            <p className="text-[11px] text-slate-200 leading-relaxed font-medium border-l-2 border-blue-500 pl-2">
+                                                <span className="text-blue-400 font-bold">FR:</span> {p.descFR}
+                                            </p>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed italic border-l-2 border-slate-600 pl-2">
+                                                <span className="text-slate-500 font-bold">EN:</span> {p.descEN}
+                                            </p>
+                                        </div>
                                         
                                         <div className="pt-4 border-t border-white/5 mb-6 text-[10px] font-bold text-blue-400 uppercase tracking-widest">
                                             {p.why}
@@ -110,15 +239,13 @@
                         </div>
                     </section>
 
-                    {/* FOOTER */}
                     <footer className="bg-slate-950 border-t border-white/5 py-12 text-center">
-                        <p className="text-slate-500 text-[10px] uppercase tracking-widest">© 2026 FuturAura — AI Marketplace</p>
+                        <p className="text-slate-500 text-[10px] uppercase tracking-widest">© 2026 FuturAura — L'Excellence par l'IA</p>
                     </footer>
                 </div>
             );
         };
 
-        // Rann paj la
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<Catalog />);
     </script>
