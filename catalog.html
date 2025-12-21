@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FuturAura | Catalogue AI 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
     </style>
 </head>
 <body class="bg-slate-900">
@@ -49,62 +50,6 @@
                 image: "https://images.unsplash.com/photo-1581091215367-59ab6b1b6a0f?auto=format&fit=crop&w=600&q=80",
                 descFR: "Détecte les comportements suspects (chutes, intrusions) avant l’incident.",
                 why: "Sécurité proactive pour maisons et entreprises."
-            },
-            {
-                id: 5,
-                name: "Oreillette Traducteur IA",
-                price: 329.50,
-                image: "https://images.unsplash.com/photo-1590650046871-92c887180603?auto=format&fit=crop&w=600&q=80",
-                descFR: "Oreillettes de traduction en temps réel (100+ langues) sans fil.",
-                why: "Parfait pour voyages et business international."
-            },
-            {
-                id: 6,
-                name: "Miroir de Fitness IA",
-                price: 1200.00,
-                image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=600&q=80",
-                descFR: "Analyse votre posture et corrige vos exercices en temps réel.",
-                why: "Coaching sportif premium à domicile."
-            },
-            {
-                id: 7,
-                name: "Projecteur Holographique",
-                price: 450.00,
-                image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=600&q=80",
-                descFR: "Transforme vos appels vidéo en hologrammes 3D immersifs.",
-                why: "Réunions futuristes et impactantes."
-            },
-            {
-                id: 8,
-                name: "Lunettes Assistant IA",
-                price: 399.99,
-                image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=600&q=80",
-                descFR: "Lisent les menus, reconnaissent les visages et affichent des notifications.",
-                why: "Vision augmentée pour le quotidien."
-            },
-            {
-                id: 9,
-                name: "Oreiller Sommeil Profond",
-                price: 289.00,
-                image: "https://images.unsplash.com/photo-1582582621959-48d27397dc69?auto=format&fit=crop&w=600&q=80",
-                descFR: "Ajuste température et fermeté selon vos cycles de sommeil.",
-                why: "Sommeil réparateur et santé améliorée."
-            },
-            {
-                id: 10,
-                name: "Drone Autonome IA",
-                price: 850.00,
-                image: "https://images.unsplash.com/photo-1508612761958-e931d843bdd4?auto=format&fit=crop&w=600&q=80",
-                descFR: "Drone autonome pour surveillance ou livraison interne.",
-                why: "Automatisation et sécurité avancées."
-            },
-            {
-                id: 11,
-                name: "Pot de Fleurs Intelligent",
-                price: 149.99,
-                image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80",
-                descFR: "Indique eau et soleil via écran LED avec personnalité IA.",
-                why: "Même les débutants réussissent leurs plantes."
             }
         ];
 
@@ -173,6 +118,7 @@
             );
         };
 
+        // Rann paj la
         const root = ReactDOM.createRoot(document.getElementById('root'));
         root.render(<Catalog />);
     </script>
