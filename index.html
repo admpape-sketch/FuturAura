@@ -22,6 +22,7 @@
     .hero-gradient { background: radial-gradient(circle at center, #1e293b 0%, #020617 100%); }
     #google_translate_element { position: fixed; bottom: 85px; left: 20px; z-index: 1000; }
     .goog-te-gadget-simple { background: #1e293b !important; border: 1px solid #334155 !important; padding: 5px !important; border-radius: 8px !important; color: white !important; }
+    .accordion-item { border-bottom: 1px solid rgba(255,255,255,0.05); }
   </style>
 </head>
 <body>
@@ -34,9 +35,10 @@ const { useState, useEffect } = React;
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState([{ role: 'ai', text: 'Bonjour ! Hi! I am FuturAura AI. How can I help you? / Comment puis-je vous aider ?' }]);
+  const [chatMessages, setChatMessages] = useState([{ role: 'ai', text: 'Bonjour ! Je suis FuturAura AI. Comment puis-je vous aider ?' }]);
   const [userInput, setUserInput] = useState('');
   const [showWhatsAppHuman, setShowWhatsAppHuman] = useState(false);
+  const [openFaq, setOpenFaq] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => { setShowWhatsAppHuman(true); }, 30000); 
@@ -47,9 +49,9 @@ const Home = () => {
     if (!userInput.trim()) return;
     const newMessages = [...chatMessages, { role: 'user', text: userInput }];
     setChatMessages(newMessages);
-    let response = "I'm connecting you to a human expert... / Je vous connecte à un expert...";
+    let response = "Je vous connecte à un expert humain...";
     const input = userInput.toLowerCase();
-    if (input.includes("prix") || input.includes("price")) response = "Check our 'Catalogue' for 30% OFF! / Visitez le 'Catalogue' pour -30% !";
+    if (input.includes("prix") || input.includes("tarif")) response = "Visitez notre 'Catalogue' pour profiter de -30% de réduction !";
     setTimeout(() => { setChatMessages([...newMessages, { role: 'ai', text: response }]); }, 1000);
     setUserInput('');
   };
@@ -68,7 +70,7 @@ const Home = () => {
             FuturAura
           </div>
           <div className="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-widest">
-            <a href="index.html" className="text-blue-400 border-b-2 border-blue-400">Home</a>
+            <a href="index.html" className="text-blue-400 border-b-2 border-blue-400">Accueil</a>
             <a href="catalog.html" className="hover:text-blue-400 transition">Catalogue</a>
             <a href="contact.html" className="hover:text-blue-400 transition">Contact</a>
           </div>
@@ -78,7 +80,7 @@ const Home = () => {
         </div>
         {isMenuOpen && (
           <div className="md:hidden glass absolute top-20 left-0 w-full p-10 flex flex-col gap-6 text-center font-bold uppercase">
-            <a href="index.html">Home</a>
+            <a href="index.html">Accueil</a>
             <a href="catalog.html">Catalogue</a>
             <a href="contact.html">Contact</a>
           </div>
@@ -96,52 +98,119 @@ const Home = () => {
         </h1>
         <p className="max-w-3xl mx-auto text-slate-400 text-lg md:text-xl mb-12 font-light tracking-wide">
           Dominez 2026 avec notre sélection élite de gadgets intelligents.<br/>
-          <span className="text-sm uppercase font-bold text-slate-500 tracking-[0.3em]">Master your future with elite AI tools.</span>
+          <span className="text-sm uppercase font-bold text-slate-500 tracking-[0.3em]">Maîtrisez votre futur avec les meilleurs outils IA.</span>
         </p>
         <div className="flex flex-col md:flex-row justify-center gap-6">
           <a href="catalog.html" className="px-12 py-5 bg-blue-600 hover:bg-blue-500 rounded-2xl font-black uppercase transition-all transform hover:scale-105 shadow-2xl shadow-blue-500/40">
-            Explore Catalogue →
+            Explorer le Catalogue →
           </a>
           <div className="flex items-center justify-center gap-4 text-xs font-bold text-emerald-400 uppercase">
             <span className="flex h-3 w-3 bg-emerald-500 rounded-full animate-ping"></span>
-            14 items sold in the last hour
+            14 articles vendus la dernière heure
           </div>
         </div>
       </section>
 
-      {/* TRUST BADGES - NEW CONVINCING SECTION */}
-      <div className="max-w-7xl mx-auto px-6 pb-24 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-60">
-        {['SSL Encrypted', 'Global Shipping', '24/7 AI Support', 'Money Back Guarantee'].map(t => (
+      {/* SECTION: POURQUOI NOUS */}
+      <section className="py-20 px-6 max-w-7xl mx-auto">
+        <h2 className="text-center text-3xl font-black mb-12 uppercase italic tracking-widest">Pourquoi choisir FuturAura ?</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="glass p-8 rounded-3xl text-center border-t-4 border-blue-500">
+            <div className="text-4xl mb-4">🚀</div>
+            <h3 className="font-black mb-2 uppercase text-sm tracking-widest">Technologie Avancée</h3>
+            <p className="text-slate-400 text-xs leading-relaxed">Nous sélectionnons uniquement les meilleures innovations IA.</p>
+          </div>
+          <div className="glass p-8 rounded-3xl text-center border-t-4 border-emerald-500">
+            <div className="text-4xl mb-4">💬</div>
+            <h3 className="font-black mb-2 uppercase text-sm tracking-widest">Support Multilingue</h3>
+            <p className="text-slate-400 text-xs leading-relaxed">Notre équipe vous accompagne pour configurer vos outils directement via WhatsApp.</p>
+          </div>
+          <div className="glass p-8 rounded-3xl text-center border-t-4 border-purple-500">
+            <div className="text-4xl mb-4">⚡</div>
+            <h3 className="font-black mb-2 uppercase text-sm tracking-widest">Livraison Rapide</h3>
+            <p className="text-slate-400 text-xs leading-relaxed">Nous garantissons une réception de vos services ou produits sans aucun délai.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: COMMENT ÇA MARCHE */}
+      <section className="py-20 bg-slate-900/20">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-center text-3xl font-black mb-16 uppercase italic tracking-widest text-emerald-400">Comment ça marche ?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+            <div className="relative z-10 text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg shadow-blue-500/30">1</div>
+              <h4 className="font-bold mb-2 uppercase text-[10px] tracking-widest">Étape 1</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">Choisissez le produit IA adapté à vos besoins dans notre catalogue.</p>
+            </div>
+            <div className="relative z-10 text-center">
+              <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg shadow-emerald-500/30">2</div>
+              <h4 className="font-bold mb-2 uppercase text-[10px] tracking-widest">Étape 2</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">Contactez-nous sur WhatsApp pour finaliser la commande et le paiement.</p>
+            </div>
+            <div className="relative z-10 text-center">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg shadow-purple-500/30">3</div>
+              <h4 className="font-bold mb-2 uppercase text-[10px] tracking-widest">Étape 3</h4>
+              <p className="text-xs text-slate-300 leading-relaxed">Recevez votre produit ou accès digital immédiatement avec un guide d'accompagnement.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TRUST BADGES */}
+      <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-2 md:grid-cols-4 gap-4 opacity-60">
+        {['Cryptage SSL', 'Livraison Mondiale', 'Support IA 24/7', 'Garantie de Satisfaction'].map(t => (
           <div key={t} className="text-[10px] font-black uppercase tracking-widest border border-white/10 p-4 rounded-xl text-center">
             {t}
           </div>
         ))}
       </div>
 
-      {/* TESTIMONIALS - PHOTO UPDATED TO FEMALE */}
+      {/* TESTIMONIALS */}
       <section className="py-24 bg-slate-900/40 px-6 border-y border-white/5 relative">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-black mb-16 uppercase italic">Success Stories</h2>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div className="glass p-8 rounded-[40px] flex flex-col items-center transform hover:-translate-y-2 transition">
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" className="w-20 h-20 rounded-full mb-6 border-4 border-blue-500/30 object-cover" alt="Client"/>
               <p className="text-sm italic text-slate-300 mb-6">"L'AI Translator a changé ma vie d'entrepreneure. Je négocie en 4 langues sans effort."</p>
               <p className="font-black text-emerald-400 text-[10px] uppercase tracking-widest">Sarah J. — CEO Global</p>
             </div>
-            
             <div className="glass p-8 rounded-[40px] flex flex-col items-center transform hover:-translate-y-2 transition shadow-2xl shadow-emerald-500/10">
               <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" className="w-20 h-20 rounded-full mb-6 border-4 border-emerald-500/30 object-cover" alt="Client"/>
               <p className="text-sm italic text-slate-300 mb-6">"Le Drone IA est précis et puissant. C'est l'investissement le plus rentable de mon année."</p>
               <p className="font-black text-emerald-400 text-[10px] uppercase tracking-widest">Clara V. — Agronome</p>
             </div>
-
             <div className="glass p-8 rounded-[40px] flex flex-col items-center transform hover:-translate-y-2 transition">
               <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80" className="w-20 h-20 rounded-full mb-6 border-4 border-purple-500/30 object-cover" alt="Client"/>
               <p className="text-sm italic text-slate-300 mb-6">"Service WhatsApp incroyable. J'ai été guidée pas à pas pour configurer mes lunettes IA."</p>
               <p className="font-black text-emerald-400 text-[10px] uppercase tracking-widest">Marie D. — Creative Lead</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-24 px-6 max-w-3xl mx-auto">
+        <h2 className="text-center text-3xl font-black mb-12 uppercase italic tracking-widest">FAQ — Questions Fréquentes</h2>
+        <div className="space-y-4">
+          {[
+            { q: "Est-ce que vous livrez partout dans le monde ?", a: "Oui, nos produits et services sont accessibles partout dans le monde et sont compatibles avec les réseaux locaux." },
+            { q: "Comment vais-je recevoir mon produit ?", a: "Une fois le paiement effectué, vous recevrez votre produit ou vos accès immédiatement par e-mail ou via WhatsApp avec un guide complet." },
+            { q: "Est-ce qu'il y a une garantie ?", a: "Absolument. Nous offrons une garantie de satisfaction à 100%. Notre équipe vous accompagne jusqu'à votre entière satisfaction." }
+          ].map((item, idx) => (
+            <div key={idx} className="glass p-6 rounded-2xl cursor-pointer overflow-hidden" onClick={() => setOpenFaq(openFaq === idx ? null : idx)}>
+              <div className="flex justify-between items-center font-black text-[10px] uppercase tracking-widest">
+                <span>{item.q}</span>
+                <span className="text-blue-400">{openFaq === idx ? '−' : '+'}</span>
+              </div>
+              {openFaq === idx && (
+                <div className="mt-4 text-xs text-slate-400 leading-relaxed animate-in fade-in slide-in-from-top-2">
+                  {item.a}
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </section>
 
@@ -176,12 +245,12 @@ const Home = () => {
               ))}
               {showWhatsAppHuman && (
                 <a href="https://wa.me/50939045395" target="_blank" className="bg-emerald-600 hover:bg-emerald-500 text-white p-4 rounded-2xl text-[10px] text-center font-black uppercase tracking-widest animate-pulse transition">
-                  🟢 Talk to Human / Parler à un expert
+                  🟢 Parler à un expert (WhatsApp)
                 </a>
               )}
             </div>
             <div className="p-4 bg-slate-900 flex gap-2">
-              <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} placeholder="Type your question..." className="bg-slate-800 border-none rounded-xl p-3 text-xs flex-grow focus:ring-1 focus:ring-emerald-500 text-white"/>
+              <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()} placeholder="Posez votre question..." className="bg-slate-800 border-none rounded-xl p-3 text-xs flex-grow focus:ring-1 focus:ring-emerald-500 text-white"/>
               <button onClick={handleSendMessage} className="bg-emerald-600 px-4 rounded-xl hover:bg-emerald-500 transition">➤</button>
             </div>
           </div>
